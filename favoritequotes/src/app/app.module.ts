@@ -5,12 +5,20 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
+import { Favorites } from '../pages/favorites/favorites';
+import { Library } from '../pages/library/library';
+import { Quote } from '../pages/quote/quote';
+import { Quotes } from '../pages/quotes/quotes';
+import { Settings } from '../pages/settings/settings';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    Favorites,
+    Library,
+    Quote,
+    Quotes,
+    Settings
   ],
   imports: [
     BrowserModule,
@@ -19,7 +27,11 @@ import { HomePage } from '../pages/home/home';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    Favorites,
+    Library,
+    Quote,
+    Quotes,
+    Settings
   ],
   providers: [
     StatusBar,
