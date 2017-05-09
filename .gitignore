@@ -1,5 +1,7 @@
 # Created by .ignore support plugin (hsz.mobi)
 .idea
+platforms
+node_modules
 .idea/FavoriteQuotes.iml
 .idea/inspectionProfiles/
 .idea/misc.xml
