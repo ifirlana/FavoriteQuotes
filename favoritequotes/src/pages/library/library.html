@@ -7,12 +7,23 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>library</ion-title>
+    <ion-title text-center>Countries library</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
+  <h3 text-center>Select Country</h3>
+  <ion-list>
+    <button
+      ion-item
+      [navPush]="countryPage"
+      [navParams]="item"
+      *ngFor="let item of countryCollection">
+      <ion-icon [name]="item.partial_match" item-left></ion-icon>
+      <h2>{{item.formatted_address}}</h2>
+      <p>{{item.address_components.length}} level administrative</p>
+    </button>
+  </ion-list>
 </ion-content>

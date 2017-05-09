@@ -10,6 +10,7 @@ import { Library } from '../pages/library/library';
 import { Quote } from '../pages/quote/quote';
 import { Quotes } from '../pages/quotes/quotes';
 import { Settings } from '../pages/settings/settings';
+import { Tab } from '../pages/tab/tab';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { Settings } from '../pages/settings/settings';
     Library,
     Quote,
     Quotes,
-    Settings
+    Settings,
+    Tab
   ],
   imports: [
     BrowserModule,
@@ -31,7 +33,8 @@ import { Settings } from '../pages/settings/settings';
     Library,
     Quote,
     Quotes,
-    Settings
+    Settings,
+    Tab
   ],
   providers: [
     StatusBar,
