@@ -26,7 +26,7 @@ export class MyApp {
         .then((db: SQLiteObject) => {
 
 
-          db.executeSql('create table danceMoves(name VARCHAR(32))', {})
+          db.executeSql('create table people(firstname VARCHAR(32), lastname  VARCHAR(32))', {})
             .then(() =>
             {
               alert('Executed SQL');
