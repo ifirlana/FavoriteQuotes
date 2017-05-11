@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 import { Country } from '../data/quotes.interface';
@@ -12,7 +12,7 @@ import { Country } from '../data/quotes.interface';
   selector: 'page-quotes',
   templateUrl: 'quotes.html',
 })
-export class Quotes {
+export class Quotes implements OnInit{
 
   countryCollection : {
     address_components : Country[],
@@ -25,9 +25,12 @@ export class Quotes {
 
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad Quotes');
+  // ionViewDidLoad() {
+  //   console.log('ionViewDidLoad Quotes');
+  //   this.countryCollection = this.navParams.data;
+  // }
+
+  ngOnInit () {
     this.countryCollection = this.navParams.data;
   }
-
 }

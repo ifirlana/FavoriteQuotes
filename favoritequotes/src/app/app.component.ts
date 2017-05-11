@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
 
 import { Tab } from '../pages/tab/tab';
 @Component({
@@ -16,6 +17,29 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
+
+      let db = new SQLite();
+      db.create({
+        name: 'data.db',
+        location: 'default'
+      })
+        .then((db: SQLiteObject) => {
+
+
+          db.executeSql('create table danceMoves(name VARCHAR(32))', {})
+            .then(() =>
+            {
+              alert('Executed SQL');
+              console.log('Executed SQL')
+            })
+            .catch(e => {
+              alert(JSON.stringify(e));
+              console.log(e)
+            });
+
+
+        })
+        .catch(e => console.log(e));
     });
   }
 }

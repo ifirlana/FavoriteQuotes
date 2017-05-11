@@ -7,12 +7,25 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title></ion-title>
+    <ion-title>{{countryCollection.formatted_address}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  {{countryCollection}}
+  <h2>{{countryCollection.formatted_address}}</h2>
+  <p>{{countryCollection.place_id}}</p>
+  <ion-card *ngFor="let item of countryCollection.address_components">
+
+    <ion-card-header>
+      {{item.long_name}}
+    </ion-card-header>
+
+    <ion-card-content>
+      {{item.short_name}}
+      <!-- Add card content here! -->
+    </ion-card-content>
+
+  </ion-card>
 </ion-content>
