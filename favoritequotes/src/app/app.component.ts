@@ -29,11 +29,10 @@ export class MyApp {
           db.executeSql('create table people(firstname VARCHAR(32), lastname  VARCHAR(32))', {})
             .then(() =>
             {
-              alert('Executed SQL');
-              console.log('Executed SQL')
+              alert('Executed SQL')
             })
             .catch(e => {
-              alert(JSON.stringify(e));
+              console.log(JSON.stringify(e));
               console.log(e)
             });
 

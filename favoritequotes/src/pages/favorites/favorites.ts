@@ -2,7 +2,9 @@ import { Component } from '@angular/core';
 import {  NavController, NavParams, Platform } from 'ionic-angular';
 import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
 
-
+// service
+import { QuotesService } from '../../services/quotes';
+import { Country } from '../data/quotes.interface';
 /**
  * Generated class for the Favorites page.
  *
@@ -18,6 +20,8 @@ export class Favorites {
   public database: SQLite;
   public people: Array<Object>;
   public db = new SQLite();
+  public quotesService = new QuotesService();
+  quotes : Country[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private platform: Platform) {
    this.refresh();
@@ -25,6 +29,11 @@ export class Favorites {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad Favorites');
+    this.refresh_quotes();
+  }
+
+  public refresh_quotes() {
+    this.quotes = this.quotesService.getFavoritesQuotes();
   }
 
   public add() {
@@ -35,7 +44,7 @@ export class Favorites {
     }).then((db: SQLiteObject) => {
       db.executeSql("INSERT INTO people (firstname, lastname) VALUES ('Nic', 'Raboy')", []).then((data) => {
         console.log("INSERTED: " + JSON.stringify(data));
-        alert("INSERTED: " + JSON.stringify(data));
+        console.log("INSERTED: " + JSON.stringify(data));
       }, (error) => {
         console.log("ERROR: " + JSON.stringify(error));
         alert("ERROR: " + JSON.stringify(error));
@@ -55,7 +64,7 @@ export class Favorites {
             this.people.push({firstname: data.rows.item(i).firstname, lastname: data.rows.item(i).lastname});
           }
         }
-        alert("success: " + JSON.stringify(this.people));
+        console.log("success: " + JSON.stringify(this.people));
       }, (error) => {
         console.log("ERROR: " + JSON.stringify(error));
         alert("ERROR: " + JSON.stringify(error));

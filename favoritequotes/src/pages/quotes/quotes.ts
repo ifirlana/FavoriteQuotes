@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 import { Country } from '../data/quotes.interface';
+import { QuotesService } from '../../services/quotes';
 /**
  * Generated class for the Quotes page.
  *
@@ -21,6 +22,8 @@ export class Quotes implements OnInit{
     place_id :string
   }[];
 
+  private quotesService = new QuotesService();
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
 
   }
@@ -32,5 +35,10 @@ export class Quotes implements OnInit{
 
   ngOnInit () {
     this.countryCollection = this.navParams.data;
+  }
+
+  CLickMe (quotes : Country) {
+    this.quotesService.addQuoteToFavorites(quotes);
+    alert("OKE");
   }
 }
